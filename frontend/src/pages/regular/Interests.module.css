@@ -1,0 +1,250 @@
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.pageTitle {
+    font-size: 2rem;
+    color: var(--text-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+    color: var(--text);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Banners */
+.errorBanner {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* List */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Interest Card */
+.interestCard {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+}
+
+.interestCard:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.jobTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 var(--spacing-xs);
+}
+
+.businessName {
+    font-size: 0.9375rem;
+    color: var(--text);
+    margin: 0;
+}
+
+/* Active negotiation card - highlighted */
+.activeNegotiationCard {
+    border: 2px solid var(--primary);
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+/* Filled job card - muted */
+.filledCard {
+    opacity: 0.7;
+    background-color: var(--bg-secondary);
+}
+
+.filledCard:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Timer section */
+.timerSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-xs);
+    background-color: var(--code-bg);
+    border-radius: var(--radius-md);
+}
+
+.timerLabel {
+    font-size: 0.75rem;
+    color: var(--text);
+}
+
+/* Filled section */
+.filledSection {
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-md);
+    text-align: center;
+}
+
+.filledMessage {
+    color: var(--success);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.activeNegotiationCard .negotiationHint {
+    color: var(--primary);
+}
+
+/* Badges */
+.mutualBadge {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pendingBadge {
+    background-color: var(--code-bg);
+    color: var(--text);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Job Details */
+.jobDetails {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detailLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+.detailValue {
+    color: var(--text-heading);
+    font-size: 0.9375rem;
+}
+
+/* Negotiation Section */
+.negotiationSection {
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-xs);
+}
+
+.negotiationHint {
+    font-size: 0.75rem;
+    color: var(--text);
+    text-align: center;
+    margin-top: var(--spacing-sm);
+}
+
+.waitingSection {
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-md);
+    text-align: center;
+}
+
+.waitingMessage {
+    color: var(--text);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Empty State */
+.empty {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background-color: var(--bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.empty p {
+    margin-bottom: var(--spacing-md);
+}
+
+.mutedText {
+    color: var(--text);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Error State */
+.errorContainer {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.error {
+    color: var(--danger);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    .pageTitle {
+        font-size: 1.5rem;
+    }
+
+    .jobDetails {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .cardHeader {
+        flex-direction: column;
+    }
+}

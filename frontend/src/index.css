@@ -1,0 +1,475 @@
+/* ============================================
+   DESIGN SYSTEM - LIGHT MODE (DEFAULT)
+   ============================================ */
+
+:root {
+    /* ===== CORE COLORS ===== */
+    --primary: #8b5cf6;        /* Vibrant purple */
+    --primary-dark: #7c3aed;   /* Darker purple for hover states */
+    --primary-light: #a78bfa;  /* Lighter purple for accents */
+    --primary-bg: rgba(139, 92, 246, 0.1);      /* Background with purple tint */
+    --primary-border: rgba(139, 92, 246, 0.3);  /* Border with purple tint */
+    
+    /* Neutral colors */
+    --text: #4b5563;           /* Slate gray for body text */
+    --text-heading: #1f2937;   /* Darker gray for headings */
+    --bg: #ffffff;              /* Pure white background */
+    --bg-secondary: #f9fafb;   /* Off-white for secondary backgrounds */
+    --border: #e5e7eb;         /* Light gray for borders */
+    --code-bg: #f3f4f6;        /* Light gray for code blocks */
+    --social-bg: rgba(243, 244, 246, 0.5);
+    
+    /* ===== ACCENT COLORS ===== */
+    --success: #10b981;        /* Green for success states */
+    --warning: #f59e0b;        /* Orange for warnings */
+    --danger: #ef4444;         /* Red for errors/danger */
+    --info: #3b82f6;           /* Blue for info */
+
+    /* ===== NAVBAR COLORS ===== */
+    --navbar-bg: #412175;           /* Dark purple for light mode */
+    --navbar-text: #ffffff;          /* White text for light mode */
+    --navbar-link-hover-bg: rgba(255, 255, 255, 0.1);
+    
+    /* ===== SPACING ===== */
+    --spacing-xs: 0.25rem;     /* 4px */
+    --spacing-sm: 0.5rem;      /* 8px */
+    --spacing-smmd: 0.75rem;   /* 12px */
+    --spacing-md: 1rem;        /* 16px */
+    --spacing-lg: 1.5rem;      /* 24px */
+    --spacing-xl: 2rem;        /* 32px */
+    --spacing-2xl: 3rem;       /* 48px */
+    
+    /* ===== TYPOGRAPHY ===== */
+    --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+    
+    /* ===== SHADOWS ===== */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* ===== BORDER RADIUS ===== */
+    --radius-sm: 0.25rem;      /* 4px */
+    --radius-md: 0.5rem;       /* 8px */
+    --radius-lg: 0.75rem;      /* 12px */
+    --radius-xl: 1rem;         /* 16px */
+    --radius-full: 9999px;
+    
+    /* ===== LAYOUT ===== */
+    --max-width: 1200px;
+    --navbar-height: 64px;
+    --sidebar-width: 220px;
+    
+    /* ===== BASE TYPOGRAPHY ===== */
+    font: 18px/1.45 var(--font-sans);
+    letter-spacing: 0.18px;
+    color-scheme: light dark;
+    color: var(--text);
+    background: var(--bg);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+/* ============================================
+   DARK MODE OVERRIDES
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root:not(.force-light) {
+        /* Theme for dark mode - more vibrant */
+        --primary: #a78bfa;
+        --primary-dark: #c084fc;
+        --primary-light: #d8b4fe;
+        --primary-bg: rgba(167, 139, 250, 0.15);
+        --primary-border: rgba(167, 139, 250, 0.4);
+        
+        /* Dark mode neutrals */
+        --text: #9ca3af;
+        --text-heading: #f3f4f6;
+        --bg: #14141c;
+        --bg-secondary: #1f2937;
+        --border: #374151;
+        --code-bg: #1f2937;
+        --social-bg: rgba(31, 41, 55, 0.5);
+        
+        /* Accent colors for dark mode */
+        --success: #10b981;
+        --warning: #fbbf24;
+        --danger: #ef4444;
+        --info: #60a5fa;
+
+        /* Navbar colors for dark mode */
+        --navbar-bg: #2c1f40;        /* Slightly lighter dark purple */
+        --navbar-text: #f3f4f6;
+        --navbar-link-hover-bg: rgba(255, 255, 255, 0.15);
+        
+        /* Shadows for dark mode */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* ============================================
+   GLOBAL RESETS
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* ============================================
+   SIDEBAR LAYOUT
+   ============================================ */
+
+#main-content {
+    min-width: 0;
+    flex: 1;
+}
+
+/* ============================================
+   ROOT LAYOUT
+   ============================================ */
+
+#root {
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-heading);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+    font-size: 1.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* ============================================
+   LINK STYLES
+   ============================================ */
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+input, 
+textarea, 
+select {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--bg);
+    color: var(--text);
+    transition: all 0.2s ease;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Layout */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    width: 100%;
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid-cols-1 { grid-template-columns: 1fr; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+    .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Flex Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+
+/* Gap Utilities */
+.gap-1 { gap: var(--spacing-xs); }
+.gap-2 { gap: var(--spacing-sm); }
+.gap-3 { gap: var(--spacing-md); }
+.gap-4 { gap: var(--spacing-lg); }
+.gap-5 { gap: var(--spacing-xl); }
+
+/* Margin Utilities */
+.m-0 { margin: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+/* Padding Utilities */
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }
+
+/* Text Utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Text Colors */
+.text-primary { color: var(--primary); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warning { color: var(--warning); }
+.text-info { color: var(--info); }
+
+/* Background Colors */
+.bg-primary { background-color: var(--primary); }
+.bg-primary-bg { background-color: var(--primary-bg); }
+.bg-success { background-color: var(--success); }
+.bg-danger { background-color: var(--danger); }
+
+/* Border Radius */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* Card Styles */
+.card {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Message Styles */
+.error-message {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.success-message {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--code-bg);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ============================================
+            DARK/LIGHT MODE TOGGLE
+   ============================================ */
+
+/* Force light mode - overrides everything */
+.force-light {
+    /* Light mode colors */
+    --primary: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --primary-light: #a78bfa;
+    --primary-bg: rgba(139, 92, 246, 0.1);
+    --primary-border: rgba(139, 92, 246, 0.3);
+
+    --text: #4b5563;
+    --text-heading: #1f2937;
+    --bg: #ffffff;
+    --bg-secondary: #f9fafb;
+    --border: #e5e7eb;
+    --code-bg: #f3f4f6;
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    --navbar-bg: #412175;
+    --navbar-text: #ffffff;
+    --navbar-link-hover-bg: rgba(255, 255, 255, 0.1);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    color-scheme: light;
+}
+
+/* Force dark mode - overrides everything */
+.force-dark {
+    /* Dark mode colors */
+    --primary: #a78bfa;
+    --primary-dark: #c084fc;
+    --primary-light: #d8b4fe;
+    --primary-bg: rgba(167, 139, 250, 0.15);
+    --primary-border: rgba(167, 139, 250, 0.4);
+
+    --text: #9ca3af;
+    --text-heading: #f3f4f6;
+    --bg: #14141c;
+    --bg-secondary: #1f2937;
+    --border: #374151;
+    --code-bg: #1f2937;
+
+    --success: #10b981;
+    --warning: #fbbf24;
+    --danger: #ef4444;
+    --info: #60a5fa;
+
+    --navbar-bg: #1a1a2e;
+    --navbar-text: #f3f4f6;
+    --navbar-link-hover-bg: rgba(255, 255, 255, 0.15);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+
+    color-scheme: dark;
+}
+
+body, .navbar, .card, button, input, textarea {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}

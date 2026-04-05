@@ -1,0 +1,159 @@
+/* Pushes main content to the right to account for the fixed sidebar */
+.spacer {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    transition: width 0.25s ease;
+}
+
+.spacerCollapsed {
+    width: 48px;
+}
+
+.sidebar {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--navbar-height));
+    background-color: var(--navbar-bg);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 50;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    transition: width 0.25s ease;
+}
+
+.sidebarCollapsed {
+    width: 48px;
+}
+
+/* Sidebar header with Menu label and close button */
+.sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: var(--spacing-sm);
+}
+
+.sidebarTitle {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Close button (X) - small circular button */
+.closeBtn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 1rem;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.closeBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Hamburger button for collapsed view */
+.hamburgerBtn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin: var(--spacing-sm) auto;
+}
+
+.hamburgerBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+    gap: var(--spacing-xs);
+}
+
+.sectionLabel {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-xs);
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.sectionLabel:first-child {
+    padding-top: var(--spacing-sm);
+}
+
+.sectionLabel:first-of-type {
+    padding-top: var(--spacing-sm);
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.link:hover {
+    background-color: var(--navbar-link-hover-bg);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--danger);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: var(--radius-full);
+    line-height: 0;
+    text-indent: 0;
+}
+
+.badge span {
+    display: inline-block;
+}

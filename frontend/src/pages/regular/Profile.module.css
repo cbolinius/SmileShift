@@ -1,0 +1,323 @@
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.pageTitle {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-heading);
+}
+
+/* Banners */
+.successBanner {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.errorBanner {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* Layout */
+.layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Card */
+.card {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cardTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 var(--spacing-md);
+}
+
+.cardHeader .cardTitle {
+    margin: 0;
+}
+
+/* Avatar section */
+.avatarSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 3px solid var(--primary);
+}
+
+.avatarPlaceholder {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+/* Name section */
+.nameSection {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 var(--spacing-xs);
+}
+
+.email {
+    color: var(--text);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Availability section */
+.availabilitySection {
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-md);
+}
+
+.availabilityHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.availabilityLabel {
+    font-weight: 500;
+    color: var(--text-heading);
+    font-size: 0.875rem;
+}
+
+.badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badgeSuccess {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.badgeDanger {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+}
+
+.inlineError {
+    color: var(--danger);
+    font-size: 0.8125rem;
+    margin-top: var(--spacing-sm);
+}
+
+/* Resume section */
+.resumeLink {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.resumeLink:hover {
+    text-decoration: underline;
+}
+
+.mutedText {
+    color: var(--text);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Info grid */
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+}
+
+.infoValue {
+    color: var(--text-heading);
+    font-size: 0.9375rem;
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.label {
+    font-weight: 500;
+    color: var(--text-heading);
+    font-size: 0.875rem;
+}
+
+.input {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: all 0.2s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+.textarea {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background-color: var(--bg);
+    color: var(--text);
+    resize: vertical;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+.formActions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* Error state */
+.errorContainer {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.error {
+    color: var(--danger);
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .pageTitle {
+        font-size: 1.5rem;
+    }
+}

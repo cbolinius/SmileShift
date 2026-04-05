@@ -1,0 +1,233 @@
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.backBtn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 0.9375rem;
+    padding: 0;
+    margin-bottom: var(--spacing-lg);
+    transition: opacity 0.2s;
+}
+
+.backBtn:hover {
+    opacity: 0.75;
+}
+
+/* Card */
+.card {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border);
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0 0 var(--spacing-xs);
+}
+
+.ptDescription {
+    color: var(--text);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+/* Badges */
+.badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.badgeDefault { background-color: var(--code-bg); color: var(--text); }
+.badgeInfo { background-color: rgba(59, 130, 246, 0.15); color: var(--info); }
+.badgeSuccess { background-color: rgba(16, 185, 129, 0.15); color: var(--success); }
+.badgeDanger { background-color: rgba(239, 68, 68, 0.15); color: var(--danger); }
+.badgeWarning { background-color: rgba(245, 158, 11, 0.15); color: var(--warning); }
+
+/* Sections */
+.section {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border);
+}
+
+.section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: var(--spacing-md);
+}
+
+/* User row */
+.userRow {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    flex-shrink: 0;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.userName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0;
+}
+
+.userDetail {
+    color: var(--text);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.biography {
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Details grid */
+.detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detailLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+}
+
+.detailValue {
+    color: var(--text-heading);
+    font-size: 0.9375rem;
+}
+
+/* Note */
+.noteBox {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.noteText {
+    color: var(--text-heading);
+    line-height: 1.6;
+    margin: var(--spacing-xs) 0 0;
+}
+
+/* Document link */
+.docLink {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.docLink:hover {
+    text-decoration: underline;
+}
+
+/* Center states */
+.centerContainer {
+    max-width: 480px;
+    margin: var(--spacing-2xl) auto;
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.messageCard {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.messageTitle {
+    font-size: 1.5rem;
+    color: var(--text-heading);
+    margin-bottom: var(--spacing-md);
+}
+
+.messageText {
+    color: var(--text);
+    margin-bottom: var(--spacing-xl);
+}
+
+.errorText {
+    color: var(--danger);
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .detailsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 1.375rem;
+    }
+}

@@ -1,0 +1,312 @@
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.pageTitle {
+    font-size: 2rem;
+    color: var(--text-heading);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.pageHeader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Banners */
+.successBanner {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.errorBanner {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* Create form card */
+.createCard {
+    background-color: var(--bg);
+    border: 1px solid var(--primary-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.createHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.createTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: var(--spacing-xs);
+    line-height: 1;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+}
+
+.closeBtn:hover {
+    color: var(--danger);
+}
+
+.createForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.label {
+    font-weight: 500;
+    color: var(--text-heading);
+    font-size: 0.875rem;
+}
+
+.select {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: all 0.2s;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+.textarea {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background-color: var(--bg);
+    color: var(--text);
+    resize: vertical;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+.createActions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.inlineError {
+    color: var(--danger);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* List of qualifications */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.qualCard {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+}
+
+.qualCard:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.qualHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.qualTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 var(--spacing-xs);
+}
+
+.qualDate {
+    font-size: 0.8125rem;
+    color: var(--text);
+    margin: 0;
+}
+
+.qualNote {
+    color: var(--text);
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+.qualActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-md);
+}
+
+.docSection {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.docLink {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.docLink:hover {
+    text-decoration: underline;
+}
+
+.statusActions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.confirmRow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.confirmText {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--danger);
+}
+
+/* Badges */
+.badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badgeDefault {
+    background-color: var(--code-bg);
+    color: var(--text);
+}
+
+.badgeInfo {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--info);
+}
+
+.badgeSuccess {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.badgeDanger {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+}
+
+.badgeWarning {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--warning);
+}
+
+/* Empty / error states */
+.empty {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--text-heading);
+}
+
+.mutedText {
+    color: var(--text);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.errorContainer {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.error {
+    color: var(--danger);
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+
+    .pageHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .pageTitle {
+        font-size: 1.5rem;
+    }
+
+    .qualActions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

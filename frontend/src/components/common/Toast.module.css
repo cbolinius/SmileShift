@@ -1,0 +1,99 @@
+.container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.toast {
+    background-color: var(--bg);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-md);
+    min-width: 280px;
+    max-width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex: 1;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.text {
+    flex: 1;
+}
+
+.text strong {
+    display: block;
+    color: var(--text-heading);
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+}
+
+.text p {
+    color: var(--text);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.viewButton {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: background-color 0.2s;
+}
+
+.viewButton:hover {
+    background-color: var(--primary-dark);
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+}
+
+.closeButton:hover {
+    background-color: var(--code-bg);
+    color: var(--danger);
+}

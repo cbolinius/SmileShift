@@ -1,0 +1,531 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    min-height: calc(100vh - 80px);
+    background-color: var(--bg-secondary);
+}
+
+.pageWrapper {
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+}
+
+.negotiationCard {
+    background-color: var(--bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--code-bg);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    transition: all 0.2s;
+    z-index: 10;
+    line-height: 1;
+    padding: 0;
+}
+
+.closeButton:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+.twoColumnLayout {
+    display: flex;
+    gap: 0;
+}
+
+.leftColumn {
+    flex: 1;
+    min-width: 280px;
+    border-right: 1px solid var(--border);
+}
+
+.rightColumn {
+    flex: 1.2;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Left column specific styles */
+.leftColumn .header {
+    padding: var(--spacing-xl);
+    background: linear-gradient(0deg, var(--primary-bg) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.leftColumn .jobDetails {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.leftColumn .decisionStatus {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Shared styles */
+.jobTitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-heading);
+}
+
+.businessName {
+    color: var(--text);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.headerRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-sm);
+}
+
+.status {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status.active {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.status.success {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.status.failed {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+}
+
+.jobDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detailLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+.detailValue {
+    color: var(--text-heading);
+    font-size: 0.9375rem;
+}
+
+.decisionStatus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-smmd);
+}
+
+.decisionItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.decisionLabel {
+    font-size: 0.875rem;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.decisionBadge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.decisionBadge.accept {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+}
+
+.decisionBadge.decline {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+}
+
+.status.expired {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--warning);
+}
+
+.decisionBadge.accept,
+.decisionBadge.decline,
+.decisionPending {
+    text-align: center;
+}
+
+.decisionPending {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--code-bg);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    color: var(--text);
+    display: inline-block;
+}
+
+.decisionButtonsDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    border-top: 1px solid var(--border);
+}
+
+.decisionButtonsMobile {
+    display: none;
+}
+
+/* Banners */
+.errorBanner, .successBanner, .failedBanner {
+    margin: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.errorBanner {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.successBanner {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.failedBanner {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.expiredBanner {
+    margin: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.resultButton {
+    margin-left: var(--spacing-md);
+}
+
+/* Chat Section */
+.chatSection {
+    padding: var(--spacing-xl);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border-left: 1px solid var(--border);
+}
+
+.chatTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-heading);
+}
+
+.messagesContainer {
+    flex: 1;
+    max-height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-xs);
+    background-color: transparent;
+}
+
+.emptyMessages {
+    text-align: center;
+    color: var(--text);
+    padding: var(--spacing-xl);
+}
+
+.message {
+    max-width: 70%;
+    padding: var(--spacing-smmd);
+    border-radius: var(--radius-lg);
+    color: var(--text);
+    word-wrap: break-word;
+}
+
+.ownMessage {
+    align-self: flex-end;
+    background-color: var(--primary);
+    color: white;
+    border-bottom-right-radius: var(--radius-sm);
+}
+
+.otherMessage {
+    align-self: flex-start;
+    background-color: var(--code-bg);
+    color: var(--text);
+    border-bottom-left-radius: var(--radius-sm);
+}
+
+.messageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.7rem;
+    gap: var(--spacing-md);
+}
+
+.ownMessage .messageHeader {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.otherMessage .messageHeader {
+    color: var(--text);
+}
+
+.messageSender {
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.messageTime {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.messageText {
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.messageForm {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.messageInput {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.messageInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+.message:hover {
+    filter: brightness(0.97);
+}
+
+/* Withdraw button */
+.withdrawButton {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin-left: var(--spacing-xs);
+    padding: 2px 4px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s;
+}
+
+.withdrawButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Status message */
+.statusMessage {
+    margin: var(--spacing-md) var(--spacing-xl);
+    padding: var(--spacing-md);
+    background-color: var(--primary-bg);
+    color: var(--primary);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* Modal overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 400px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+}
+
+.modalTitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-heading);
+}
+
+.modalMessage {
+    color: var(--text);
+    margin-bottom: var(--spacing-lg);
+}
+
+.modalButtons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+}
+
+/* No Negotiation State */
+.noNegotiationCard {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background-color: var(--bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.noNegotiationMessage {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: var(--spacing-lg);
+}
+
+.noNegotiationContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    min-height: calc(100vh - 80px);
+    background-color: var(--bg);
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-heading);
+}
+
+@media (max-width: 1000px) {
+    .decisionStatus {
+        gap: var(--spacing-md);
+    }
+
+    .decisionLabel {
+        white-space: normal;
+        text-align: right;
+    }
+}
+
+/* Responsive - switch to single column on smaller screens */
+@media (max-width: 950px) {
+    .twoColumnLayout {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .leftColumn {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .rightColumn .chatSection {
+        border-left: none;
+    }
+
+    .decisionButtonsDesktop {
+        display: none;
+    }
+
+    .decisionButtonsMobile {
+        display: flex;
+        gap: var(--spacing-md);
+        padding: var(--spacing-xl);
+        border-top: 1px solid var(--border);
+    }
+
+    .decisionStatus {
+        flex-direction: row;
+    }
+
+    .decisionItem {
+        justify-content: center;
+    }
+
+    .decisionLabel {
+        white-space: normal;
+        text-align: right;
+    }
+
+    .container {
+        padding: var(--spacing-lg);
+    }
+}

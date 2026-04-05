@@ -1,0 +1,199 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+enum Role {
+    regular
+    business
+    administrator
+}
+
+enum QualificationStatus {
+    created
+    submitted
+    approved
+    rejected
+    revised
+}
+
+enum JobStatus {
+    open
+    filled
+    expired
+    canceled
+    completed
+}
+
+model Account {
+    id          Int         @id @default(autoincrement())
+    utorid      String?     @unique
+    email       String      @unique
+    password    String
+    role        Role        // "regular" | "business" | "administrator"
+    activated   Boolean     @default(false)
+    suspended   Boolean     @default(false)
+
+    resetToken  String?
+    expiresAt   DateTime?
+
+    createdAt   DateTime    @default(now())
+
+    regularUser RegularUser?
+    business    Business?
+}
+
+model RegularUser {
+    id              Int             @id @default(autoincrement())
+    accountId       Int             @unique
+    account         Account         @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+    firstName       String
+    lastName        String
+    phoneNumber     String?
+    postalAddress   String?
+    birthday        String          @default("1970-01-01")
+
+    avatar          String?
+    resume          String?
+    biography       String?
+
+    available       Boolean         @default(false)
+    lastActiveAt    DateTime?
+
+    qualifications  Qualification[]
+    jobs            Job[]           @relation("WorkerJobs")
+    interests       Interest[]
+    negotiations    Negotiation[]
+}
+
+model Business {
+    id              Int     @id @default(autoincrement())
+    accountId       Int     @unique
+    account         Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+    businessName    String
+    ownerName       String
+
+    phoneNumber     String
+    postalAddress   String
+
+    lon             Float
+    lat             Float
+
+    avatar          String?
+    biography       String?
+
+    verified        Boolean @default(false)
+
+    jobs            Job[]
+}
+
+model PositionType {
+    id              Int             @id @default(autoincrement())
+    name            String
+    description     String
+    hidden          Boolean         @default(true)
+
+    createdAt       DateTime        @default(now())
+
+    qualifications  Qualification[]
+    jobs            Job[]
+}
+
+model Qualification {
+    id              Int                 @id @default(autoincrement())
+    userId          Int
+    positionTypeId  Int
+
+    user            RegularUser         @relation(fields: [userId], references: [id], onDelete: Cascade)
+    positionType    PositionType        @relation(fields: [positionTypeId], references: [id], onDelete: Cascade)
+
+    status          QualificationStatus
+    note            String?
+    document        String?
+
+    updatedAt       DateTime            @updatedAt
+
+    // One qualification per User per PositionType, as required
+    @@unique([userId, positionTypeId])
+}
+
+model Job {
+    id              Int             @id @default(autoincrement())
+    businessId      Int
+    positionTypeId  Int
+    workerId        Int?
+
+    business        Business        @relation(fields: [businessId], references: [id], onDelete: Cascade)
+    positionType    PositionType    @relation(fields: [positionTypeId], references: [id])
+
+    worker          RegularUser?    @relation("WorkerJobs", fields: [workerId], references: [id])
+
+    status          JobStatus
+
+    salaryMin       Float
+    salaryMax       Float
+
+    note            String?
+
+    startTime       DateTime
+    endTime         DateTime
+
+    updatedAt       DateTime        @updatedAt
+
+    interests       Interest[]
+    negotiations    Negotiation[]
+}
+
+// Non-exclusive
+model Interest {
+    id                  Int         @id @default(autoincrement())
+    jobId               Int
+    userId              Int
+
+    job                 Job         @relation(fields: [jobId], references: [id], onDelete: Cascade)
+    user                RegularUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    candidateInterested Boolean?
+    businessInterested  Boolean?
+
+    createdAt           DateTime    @default(now())
+
+    negotiation         Negotiation?
+
+    @@unique([jobId, userId])
+}
+
+model Negotiation {
+    id                  Int         @id @default(autoincrement())
+    interestId          Int         @unique
+    interest            Interest    @relation(fields: [interestId], references: [id], onDelete: Cascade)
+    jobId               Int
+    userId              Int
+
+    job                 Job         @relation(fields: [jobId], references: [id])
+    user                RegularUser @relation(fields: [userId], references: [id])
+
+    businessDecision    String?     // "accept" | "decline"
+    candidateDecision   String?
+
+    status              String      @default("active") // active | success | failed
+
+    expiresAt           DateTime
+    createdAt           DateTime    @default(now())
+    updatedAt           DateTime    @updatedAt
+
+    @@index([jobId])
+    @@index([userId])
+}
+
+model SystemSetting {
+    key     String  @id
+    value   String
+}

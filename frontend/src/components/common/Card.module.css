@@ -1,0 +1,84 @@
+/* Base card styles - uses global variables */
+.card {
+    background-color: var(--bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+/* Variants - extends base */
+.default {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.default:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.elevated {
+    border: none;
+    box-shadow: var(--shadow-md);
+}
+
+.elevated:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.outlined {
+    border: 2px solid var(--border);
+    background-color: transparent;
+}
+
+.custom {
+    background-color: var(--bg-primary);
+    border: none;
+    box-shadow: var(--shadow-md);
+}
+
+.custom:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Padding variants */
+.padding-none {
+    padding: 0;
+}
+
+.padding-sm {
+    padding: var(--spacing-sm);
+}
+
+.padding-md {
+    padding: var(--spacing-lg);
+}
+
+.padding-lg {
+    padding: var(--spacing-xl);
+}
+
+/* Card sections */
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border);
+}
+
+.content {
+    color: var(--text);
+}
+
+/* When card is clickable */
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}

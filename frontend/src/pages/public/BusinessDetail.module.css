@@ -1,0 +1,148 @@
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    position: relative;
+}
+
+.header {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Close button */
+.closeButton {
+    position: absolute;
+    top: calc(var(--spacing-xl) + var(--spacing-sm));
+    right: var(--spacing-xl);
+    background: var(--code-bg);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    transition: all 0.2s;
+    line-height: 1;
+    padding: 0;
+}
+
+.closeButton:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 3px solid var(--primary);
+}
+
+.headerInfo {
+    flex: 1;
+}
+
+.name {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-heading);
+}
+
+.owner {
+    color: var(--text);
+    font-size: 1.125rem;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.infoCard {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.infoCard h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-heading);
+    font-size: 1.25rem;
+}
+
+.infoCard p {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text);
+}
+
+.bioCard {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.bioCard h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-heading);
+    font-size: 1.25rem;
+}
+
+.bioCard p {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.verifiedBadge {
+    display: inline-block;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.errorContainer {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.error {
+    color: var(--danger);
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: var(--spacing-lg);
+    }
+}
