@@ -24,7 +24,7 @@ function create_app() {
 
     // CORS config
     app.use(cors({
-        origin: FRONTEND_URL,
+        origin: [FRONTEND_URL, 'http://localhost:5173', 'https://smileshift-frontend-production.up.railway.app'],
         methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true

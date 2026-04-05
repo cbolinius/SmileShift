@@ -3,8 +3,7 @@ import { regularService } from '../../services/regular';
 import { publicService } from '../../services/public';
 import { Button, LoadingSpinner, Pagination } from '../../components/common';
 import styles from './MyQualifications.module.css';
-
-const API_BASE = 'http://localhost:3000';
+import { BACKEND_URL } from '../../config';
 
 const STATUS_LABELS = {
     created: 'Draft',
@@ -300,7 +299,7 @@ function MyQualifications() {
                                     <div className={styles.docSection}>
                                         {qual.document ? (
                                             <a
-                                                href={`${API_BASE}${qual.document}`}
+                                                href={`${BACKEND_URL}${qual.document}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={styles.docLink}

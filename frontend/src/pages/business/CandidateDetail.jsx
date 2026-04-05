@@ -5,6 +5,7 @@ import Card from '../../components/common/Card';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import { businessService } from '../../services/business';
 import styles from '../pages.module.css';
+import { BACKEND_URL } from '../../config';
 
 export default function CandidateDetail() {
   const { jobId, userId } = useParams();
@@ -41,8 +42,8 @@ export default function CandidateDetail() {
   if (!detail) return <div className={styles.page}><LoadingSpinner /></div>;
 
   const { user, job } = detail;
-  const resumeUrl = user.resume ? `http://localhost:3000${user.resume}` : null;
-  const docUrl = user.qualification?.document ? `http://localhost:3000${user.qualification.document}` : null;
+  const resumeUrl = user.resume ? `${BACKEND_URL}${user.resume}` : null;
+  const docUrl = user.qualification?.document ? `${BACKEND_URL}${user.qualification.document}` : null;
 
   return (
     <div className={styles.page}>

@@ -4,6 +4,7 @@ import Card from '../../components/common/Card';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import { adminService } from '../../services/admin';
 import styles from '../pages.module.css';
+import { BACKEND_URL } from '../../config';
 
 const STATUS_CLASS = {
   submitted: styles.badgeBlue, revised: styles.badgeYellow,
@@ -130,7 +131,7 @@ export default function QualificationReviews() {
                   <div className={styles.dlRow}>
                     <dt>Document</dt>
                     <dd>
-                      <a href={`http://localhost:3000${selected.document}`} target="_blank" rel="noreferrer" className={styles.link}>
+                      <a href={`${BACKEND_URL}${selected.document}`} target="_blank" rel="noreferrer" className={styles.link}>
                         View PDF
                       </a>
                     </dd>

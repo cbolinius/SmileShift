@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
 
-const API_BASE_URL = 'https://smileshift-backend-production.up.railway.app';
+const API_BASE_URL = BACKEND_URL;
 
 const api = axios.create({
     baseURL: API_BASE_URL,

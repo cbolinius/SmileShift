@@ -4,6 +4,7 @@ import Card from '../../components/common/Card';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import { businessService } from '../../services/business';
 import styles from '../pages.module.css';
+import { BACKEND_URL } from '../../config';
 
 export default function Profile() {
   const [profile, setProfile] = useState(null);
@@ -60,7 +61,7 @@ export default function Profile() {
     </div>
   );
 
-  const avatarUrl = profile.avatar ? `http://localhost:3000${profile.avatar}` : null;
+  const avatarUrl = profile.avatar ? `${BACKEND_URL}${profile.avatar}` : null;
 
   return (
     <div className={styles.page}>

@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { regularService } from '../../services/regular';
 import { Button, LoadingSpinner } from '../../components/common';
 import styles from './Profile.module.css';
-
-const API_BASE = 'http://localhost:3000';
+import { BACKEND_URL } from '../../config';
 
 function Profile() {
     const [profile, setProfile] = useState(null);
@@ -180,7 +179,7 @@ function Profile() {
                         <div className={styles.avatarSection}>
                             {profile.avatar ? (
                                 <img
-                                    src={`${API_BASE}${profile.avatar}`}
+                                    src={`${BACKEND_URL}${profile.avatar}`}
                                     alt="Avatar"
                                     className={styles.avatar}
                                 />
@@ -236,7 +235,7 @@ function Profile() {
                         <h3 className={styles.cardTitle}>Resume</h3>
                         {profile.resume ? (
                             <a
-                                href={`${API_BASE}${profile.resume}`}
+                                href={`${BACKEND_URL}${profile.resume}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.resumeLink}

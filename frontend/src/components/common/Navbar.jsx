@@ -3,6 +3,7 @@ import { useAuth } from '../../context/AuthContext';
 import { Button } from './';
 import ThemeToggle from './ThemeToggle';
 import styles from './Navbar.module.css';
+import { BACKEND_URL } from '../../config';
 
 function Navbar() {
     const { user, logout, isAuthenticated, isRegular, isBusiness, isAdmin } = useAuth();
@@ -21,7 +22,7 @@ function Navbar() {
 
     const getAvatarUrl = () => {
         if (!user) return null;
-        if ((isRegular || isBusiness) && user.avatar) return `http://localhost:3000${user.avatar}`;
+        if ((isRegular || isBusiness) && user.avatar) return `${BACKEND_URL}${user.avatar}`;
         return null;
     };
 

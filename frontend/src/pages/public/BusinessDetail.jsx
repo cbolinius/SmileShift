@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { publicService } from '../../services/public';
 import { LoadingSpinner } from '../../components/common';
 import styles from './BusinessDetail.module.css';
+import { BACKEND_URL } from '../../config';
 
 function BusinessDetail() {
     const { id } = useParams();
@@ -57,7 +58,7 @@ function BusinessDetail() {
             <div className={styles.header}>
                 {business.avatar && (
                     <img
-                        src={`http://localhost:3000${business.avatar}`}
+                        src={`${BACKEND_URL}${business.avatar}`}
                         alt={business.business_name}
                         className={styles.avatar}
                     />

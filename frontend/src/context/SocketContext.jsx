@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { io } from 'socket.io-client';
 import { useAuth } from './AuthContext';
+import { BACKEND_URL } from '../config';
 
 const SocketContext = createContext();
 
@@ -45,7 +46,7 @@ export const SocketProvider = ({ children }) => {
         }
 
         const token = localStorage.getItem('token');
-        const newSocket = io('http://localhost:3000', {
+        const newSocket = io(BACKEND_URL, {
             auth: { token },
             transports: ['websocket'],
             reconnection: true,
