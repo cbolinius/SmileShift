@@ -4,7 +4,7 @@
   "description": "Temporary Staffing Platform",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server.js 8080",
+    "start": "npm run migrate && npm run seed && node src/server.js 8080",
     "migrate": "npx prisma migrate deploy",
     "seed": "node prisma/seed.js",
     "postinstall": "npx prisma generate",
