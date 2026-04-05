@@ -22,13 +22,29 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 function create_app() {
     const app = express();
 
-    // CORS config
+    const allowedOrigins = [
+        FRONTEND_URL,
+        'http://localhost:5173',
+        'https://smileshift-frontend-production.up.railway.app'
+    ];
+
     app.use(cors({
-        origin: [FRONTEND_URL, 'http://localhost:5173', 'https://smileshift-frontend-production.up.railway.app'],
-        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+        origin: function(origin, callback) {
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.indexOf(origin) !== -1) {
+                callback(null, true);
+            } else {
+                console.log('CORS blocked origin:', origin);
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true
     }));
+
+    // Handle preflight requests
+    app.options('*', cors());
 
     app.use(express.json());
     app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
