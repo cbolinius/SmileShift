@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js 8080",
+    "migrate": "npx prisma migrate deploy",
     "seed": "node prisma/seed.js",
+    "postinstall": "npx prisma generate",
     "clean": "rm -rf prisma/dev.db* node_modules package-lock.json prisma/migrations/"
   },
   "author": "CSC309 Student, Winter 2026",
@@ -19,6 +21,7 @@
     "express-jwt": "^8.5.1",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
+    "pg": "^8.20.0",
     "prisma": "^6.19.2",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
