@@ -37,7 +37,7 @@ function Navbar() {
                 <Link to="/" className={styles.logo}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span>SmileShift</span>
-                        <img src="../SmileShiftLogo.svg" alt="SmileShift" width="28" height="28" />
+                        <img src="/SmileShiftLogo.svg" alt="SmileShift" width="28" height="28" />
                     </div>
                 </Link>
 
