@@ -111,10 +111,6 @@
     padding-top: var(--spacing-sm);
 }
 
-.sectionLabel:first-of-type {
-    padding-top: var(--spacing-sm);
-}
-
 .link {
     display: flex;
     align-items: center;
