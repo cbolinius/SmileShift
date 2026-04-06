@@ -9,7 +9,7 @@ import { BACKEND_URL } from '../../config';
 
 function Navbar() {
     const { user, logout, isAuthenticated, isRegular, isBusiness, isAdmin } = useAuth();
-    const { setSidebarCollapsed, isMobile } = useUi();
+    const { sidebarCollapsed, setSidebarCollapsed, isMobile } = useUi();
     const navigate = useNavigate();
 
     const getDisplayName = () => {
