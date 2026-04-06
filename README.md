@@ -1,0 +1,51 @@
+## Environment
+Railway PaaS (cloud deployment) or any machine with Node.js v18+ and npm v9+
+
+## Prerequisites
+- Node.js v18+ (download from https://nodejs.org (npm is included))
+- A GitHub account (for Railway deployment) 
+- A Railway account (sign up at https://railway.app)
+
+## Backend Setup
+cd backend
+npm install
+npx prisma migrate dev
+node prisma/seed.js
+node src/server.js 3000
+
+Backend runs on http://localhost:3000 by default, unless process.env.VITE_BACKEND_URL is specified.
+
+## Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+Frontend runs on http://localhost:5173 by default, unless process.env.FRONTEND_URL is specified.
+
+## Deployment (Railway)
+Frontend:
+Root directory: frontend
+Build command: npm run build
+Start command: npx serve -s dist
+Generate a domain under Networking
+Backend: 
+Root directory: backend
+Start command: npm run start
+Add environment variable: FRONTEND_URL="https://your-frontend-domain"
+Generate a domain under Networking 
+
+Connect frontend to backend
+Add to frontend environment variables: VITE_BACKEND_URL="https://your-backend-domain"
+Redeploy frontend
+
+## Attribution
+
+This project was developed with the assistance of AI-generated content (ChatGPT, DeepSeek). 
+AI assistance was used for:
+- Code generation
+- Code debugging and error resolution
+- CSS styling suggestions
+- React component structure optimization
+- Deployment configuration guidance
+
+All AI-generated code has been reviewed, tested, and integrated by the development team.
