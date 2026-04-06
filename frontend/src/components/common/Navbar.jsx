@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useUi } from '../../context/UiContext';
 import { Button } from './';
 import ThemeToggle from './ThemeToggle';
 import styles from './Navbar.module.css';
@@ -8,7 +9,7 @@ import { BACKEND_URL } from '../../config';
 
 function Navbar() {
     const { user, logout, isAuthenticated, isRegular, isBusiness, isAdmin } = useAuth();
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { setSidebarCollapsed, isMobile } = useUi();
     const navigate = useNavigate();
 
     const getDisplayName = () => {
@@ -44,13 +45,15 @@ function Navbar() {
                 </Link>
 
                 <div className={styles.right}>
-                    <button
-                        className={styles.menuBtn}
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Menu"
-                    >
-                        ☰
-                    </button>
+                    {isMobile && (
+                        <button
+                            className={styles.menuBtn}
+                            onClick={() => setSidebarCollapsed(false)}
+                            aria-label="Menu"
+                        >
+                            ☰
+                        </button>
+                    )}
                     <ThemeToggle />
                     {!isAuthenticated && (
                         <Link to="/businesses" className={styles.link}>Businesses</Link>

@@ -1,30 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useUi } from '../../context/UiContext';
 import { regularService } from '../../services/regular';
 import { businessService } from '../../services/business';
 import styles from './Sidebar.module.css';
 
 function Sidebar() {
     const { isAuthenticated, isRegular, isBusiness, isAdmin } = useAuth();
+    const { sidebarCollapsed, setSidebarCollapsed, isMobile } = useUi();
     const [mutualCount, setMutualCount] = useState(0);
     const [invitationCount, setInvitationCount] = useState(0);
     const [businessMutualCount, setBusinessMutualCount] = useState(0);
-    const [collapsed, setCollapsed] = useState(true); // Default to collapsed on mobile
-    const [isMobile, setIsMobile] = useState(false);
-
-    // Detect screen size
-    useEffect(() => {
-        const checkScreenSize = () => {
-            const mobile = window.innerWidth <= 700;
-            setIsMobile(mobile);
-            setCollapsed(mobile); // Auto-collapse on mobile, expand on desktop
-        };
-
-        checkScreenSize();
-        window.addEventListener('resize', checkScreenSize);
-        return () => window.removeEventListener('resize', checkScreenSize);
-    }, []);
 
     useEffect(() => {
         if (isRegular && isAuthenticated) {
@@ -83,15 +70,15 @@ function Sidebar() {
 
     return (
         <>
-        <div className={`${styles.spacer} ${collapsed ? styles.spacerCollapsed : ''}`} />
-        <aside className={`${styles.sidebar} ${collapsed ? styles.sidebarCollapsed : ''}`}>
+        <div className={`${styles.spacer} ${sidebarCollapsed ? styles.spacerCollapsed : ''}`} />
+        <aside className={`${styles.sidebar} ${sidebarCollapsed ? styles.sidebarCollapsed : ''}`}>
             {/* Header with Menu label and X button */}
-                {!collapsed && (
+                {!sidebarCollapsed && (
                     <div className={styles.sidebarHeader}>
                         <span className={styles.sidebarTitle}>Menu</span>
                         <button
                             className={styles.closeBtn}
-                            onClick={() => setCollapsed(true)}
+                            onClick={() => setSidebarCollapsed(true)}
                             title="Collapse sidebar"
                         >
                             ✕
@@ -100,17 +87,17 @@ function Sidebar() {
                 )}
 
                 {/* Collapsed view - only hamburger button */}
-                {collapsed && (
+                {sidebarCollapsed && (
                     <button
                         className={styles.hamburgerBtn}
-                        onClick={() => setCollapsed(false)}
+                        onClick={() => setSidebarCollapsed(false)}
                         title="Expand sidebar"
                     >
                         ☰
                     </button>
                 )}
 
-            {!collapsed && (
+            {!sidebarCollapsed && (
                 <nav className={styles.nav}>
                     {isRegular && (
                         <>

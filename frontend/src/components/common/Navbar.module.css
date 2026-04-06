@@ -185,10 +185,6 @@
         display: none;
     }
 
-    .link {
-        display: none;
-    }
-
     .container {
         padding: var(--spacing-sm) var(--spacing-md);
     }
