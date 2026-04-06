@@ -40,6 +40,8 @@ Redeploy frontend
 
 ## Attribution
 
+SmileShift was created by Cooper Bolinius, Gandi Erdenebaatar, and Muhammad Umer Farooqui as the University of Toronto CSC309 term project.
+
 This project was developed with the assistance of AI-generated content (ChatGPT, DeepSeek). 
 AI assistance was used for:
 - Code generation
