@@ -50,6 +50,12 @@
     gap: var(--spacing-md);
 }
 
+.left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
 .link {
     color: var(--navbar-text);
     text-decoration: none;

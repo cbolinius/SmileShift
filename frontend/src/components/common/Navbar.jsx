@@ -37,23 +37,25 @@ function Navbar() {
     return (
         <nav className={styles.navbar}>
             <div className={styles.container}>
-                <Link to="/" className={styles.logo}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span>SmileShift</span>
-                        <img src="/SmileShiftLogo.svg" alt="SmileShift" width="28" height="28" />
-                    </div>
-                </Link>
-
-                <div className={styles.right}>
-                    {isMobile && (
+                <div className={styles.left}>
+                    {isMobile && isAuthenticated && (
                         <button
                             className={styles.menuBtn}
-                            onClick={() => setSidebarCollapsed(false)}
-                            aria-label="Menu"
+                            onClick={() => setSidebarCollapsed(prev => !prev)}
+                            aria-label={sidebarCollapsed ? "Open menu" : "Close menu"}
                         >
-                            ☰
+                            {sidebarCollapsed ? '☰' : '✕'}
                         </button>
                     )}
+                    <Link to="/" className={styles.logo}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span>SmileShift</span>
+                            <img src="/SmileShiftLogo.svg" alt="SmileShift" width="28" height="28" />
+                        </div>
+                    </Link>
+                </div>
+
+                <div className={styles.right}>
                     <ThemeToggle />
                     {!isAuthenticated && (
                         <Link to="/businesses" className={styles.link}>Businesses</Link>
