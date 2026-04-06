@@ -10,7 +10,21 @@ function Sidebar() {
     const [mutualCount, setMutualCount] = useState(0);
     const [invitationCount, setInvitationCount] = useState(0);
     const [businessMutualCount, setBusinessMutualCount] = useState(0);
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true); // Default to collapsed on mobile
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect screen size
+    useEffect(() => {
+        const checkScreenSize = () => {
+            const mobile = window.innerWidth <= 700;
+            setIsMobile(mobile);
+            setCollapsed(mobile); // Auto-collapse on mobile, expand on desktop
+        };
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     useEffect(() => {
         if (isRegular && isAuthenticated) {

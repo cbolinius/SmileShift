@@ -25,6 +25,7 @@
 
 .sidebarCollapsed {
     width: 48px;
+    transform: translateX(-100%);
 }
 
 /* Sidebar header with Menu label and close button */
@@ -156,4 +157,32 @@
 
 .badge span {
     display: inline-block;
+}
+
+/* When collapsed on desktop, just show narrow version */
+@media (min-width: 700px) {
+    .sidebarCollapsed {
+        transform: none;
+        width: 60px;
+    }
+
+    .sidebarCollapsed .nav {
+        align-items: center;
+    }
+
+    .sidebarCollapsed .link {
+        justify-content: center;
+        padding: var(--spacing-md);
+    }
+
+    .sidebarCollapsed .link span:not(.badge) {
+        display: none;
+    }
+}
+
+/* Mobile: spacer should be 0 when collapsed */
+@media (max-width: 700px) {
+    .spacerCollapsed {
+        width: 0;
+    }
 }

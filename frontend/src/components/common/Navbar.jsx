@@ -7,6 +7,7 @@ import { BACKEND_URL } from '../../config';
 
 function Navbar() {
     const { user, logout, isAuthenticated, isRegular, isBusiness, isAdmin } = useAuth();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
 
     const getDisplayName = () => {
@@ -42,6 +43,13 @@ function Navbar() {
                 </Link>
 
                 <div className={styles.right}>
+                    <button
+                        className={styles.menuBtn}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Menu"
+                    >
+                        ☰
+                    </button>
                     <ThemeToggle />
                     {!isAuthenticated && (
                         <Link to="/businesses" className={styles.link}>Businesses</Link>
